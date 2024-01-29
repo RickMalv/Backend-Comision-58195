@@ -1,17 +1,33 @@
 const ProductManager = require("./ProductManger");
 
-const manager = new ProductManager('./src/products.json');
+const manager = new ProductManager("./products.json");
 
-async function cargarArchivos(){
-    await manager.addProduct({description: 'first product'})
-    await manager.addProduct({description: 'second product'})
+async function cargarArchivos() {
+  await manager.addProduct({
+    title: "prueba1",
+    description: "first product",
+    price: 100,
+    thumbnail: "imagen1",
+    code: 1,
+    stock: 10,
+  });
+  await manager.addProduct({
+    title: "prueba2",
+    description: "second product",
+    price: 100,
+    thumbnail: "imagen2",
+    code: 2,
+    stock: 10,
+  });
 
-    const products = await manager.getProducts()
-    console.log(products)
+  const products = await manager.getProducts();
+  console.log(products);
 
-    await manager.deleteProduct(1)
+  await manager.deleteProduct(2);
+
+  await manager.getProductById(2);
+
+  await manager.updateProduct(1, { title: "actualizado" });
 }
 
-
 cargarArchivos();
-
