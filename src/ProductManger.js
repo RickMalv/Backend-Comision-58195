@@ -6,16 +6,16 @@ class ProductManager {
     this.path = path;
 
     // Leer el archivo y setear el id en base al id del último producto
-    fs.promises
-      .readFile(this.path, "utf-8")
-      .then((content) => {
-        let products = JSON.parse(content);
-        ProductManager.id = products.reduce(
-          (maxId, product) => Math.max(maxId, product.id),
-          0
-        );
-      })
-      .catch((err) => console.error(err));
+    try {
+      let content = fs.readFileSync(this.path, "utf-8");
+      let products = JSON.parse(content);
+      ProductManager.id = products.reduce(
+        (maxId, product) => Math.max(maxId, product.id),
+        0
+      );
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async addProduct(product) {

@@ -1,6 +1,6 @@
 const ProductManager = require("./ProductManger");
 
-const manager = new ProductManager("./products.json");
+const manager = new ProductManager("./src/products.json");
 
 async function cargarArchivos() {
   await manager.addProduct({
