@@ -24,7 +24,9 @@ class ProductManager {
       "title",
       "description",
       "price",
+      "status",
       "thumbnail",
+      "category",
       "code",
       "stock",
     ];
@@ -81,16 +83,14 @@ class ProductManager {
     await fs.promises.writeFile(this.path, JSON.stringify(products));
   }
 
-  async updateProduct(id, data) {
-    let content = await fs.promises.readFile(this.path, "utf-8");
-    let products = JSON.parse(content);
+  async updateProduct(id, newProduct) {
+    let products = await this.getProducts();
 
-    let product = products.find((p) => p.id === id);
-    if (product) {
-      // Actualizar el producto con los datos nuevos
-      Object.assign(product, data);
-      // Asegurarse de que el producto tenga el id correcto
-      product.id = id;
+    let index = products.findIndex((p) => p.id == id);
+    // Actualizar el producto con los datos nuevos
+    // Asegurarse de que el producto tenga el id correcto
+    if (index >= 0) {
+      products[index] = { ...newProduct, id: products[index].id };
 
       await fs.promises.writeFile(
         this.path,

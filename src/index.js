@@ -23,11 +23,9 @@ async function cargarArchivos() {
   const products = await manager.getProducts();
   console.log(products);
 
-  await manager.deleteProduct(2);
-
   await manager.getProductById(2);
 
-  await manager.updateProduct(1, { title: "actualizado" });
+  await manager.updateProduct(3, { title: "actualizado" });
 }
 
 cargarArchivos();
