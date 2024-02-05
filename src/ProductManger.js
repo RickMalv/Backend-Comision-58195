@@ -42,7 +42,7 @@ class ProductManager {
 
     //Checkeamos que code no exista ya en el archivo
     if (products.some((p) => p.code === product.code)) {
-      console.error(`Producto con codigo ${product.code} ya existe`);
+      throw new Error(`Producto con codigo ${product.code} ya existe`);
     } else {
       product.id = ++ProductManager.id;
       products.push(product);
@@ -77,7 +77,12 @@ class ProductManager {
     let content = await fs.promises.readFile(this.path, "utf-8");
     let products = JSON.parse(content);
 
-    products = products.filter((p) => p.id != id);
+    const productIndex = products.findIndex((p) => p.id === id);
+    if (productIndex === -1) {
+      throw new Error(`Producto con el id ${id} no encontrado`);
+    }
+
+    products = products.filter((p) => p.id !== id);
 
     console.log("Se borró el producto con id " + id);
     await fs.promises.writeFile(this.path, JSON.stringify(products));
@@ -90,7 +95,11 @@ class ProductManager {
     // Actualizar el producto con los datos nuevos
     // Asegurarse de que el producto tenga el id correcto
     if (index >= 0) {
-      products[index] = { ...newProduct, id: products[index].id };
+      products[index] = {
+        ...products[index],
+        ...newProduct,
+        id: products[index].id,
+      };
 
       await fs.promises.writeFile(
         this.path,
