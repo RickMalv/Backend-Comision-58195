@@ -134,5 +134,16 @@
 		"code": 78,
 		"stock": 1,
 		"id": 17
+	},
+	{
+		"title": "prueba de post",
+		"description": "asd",
+		"price": 10,
+		"thumbnail": "foto",
+		"status": "foto",
+		"category": "foto",
+		"code": 23,
+		"stock": 499,
+		"id": 18
 	}
 ]

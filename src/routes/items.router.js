@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     await manager.addProduct(req.body);
     res.send({ status: "Success" });
   } catch (error) {
-    res.status(404).send({ error: error.message });
+    res.status(400).send({ error: error.message });
   }
 });
 
