@@ -1,27 +1,5 @@
 [
 	{
-		"id": 1,
-		"title": "Add your name in the body"
-	},
-	{
-		"title": "Add your name in the body",
-		"description": "Fourth product",
-		"price": 200,
-		"thumbnail": "image4",
-		"code": 4,
-		"stock": 30,
-		"id": 4
-	},
-	{
-		"title": "Add your name in the body",
-		"description": "Fifth product",
-		"price": 250,
-		"thumbnail": "image5",
-		"code": 5,
-		"stock": 40,
-		"id": 5
-	},
-	{
 		"title": "Product 6",
 		"description": "Sixth product",
 		"price": 300,
@@ -125,17 +103,6 @@
 		"id": 16
 	},
 	{
-		"title": 1,
-		"description": 1,
-		"price": 1,
-		"status": 1,
-		"thumbnail": 1,
-		"category": 1,
-		"code": 78,
-		"stock": 1,
-		"id": 17
-	},
-	{
 		"title": "prueba de post",
 		"description": "asd",
 		"price": 10,
@@ -145,5 +112,82 @@
 		"code": 23,
 		"stock": 499,
 		"id": 18
+	},
+	{
+		"title": "a",
+		"price": "123",
+		"thumbnail": "123",
+		"description": "asd",
+		"stock": "123",
+		"status": "true",
+		"category": "asd",
+		"code": "tqwee",
+		"id": 19
+	},
+	{
+		"title": "vxv",
+		"price": "123",
+		"thumbnail": "123",
+		"description": "sdf",
+		"stock": "123",
+		"status": "",
+		"category": "123",
+		"code": "123",
+		"id": 20
+	},
+	{
+		"title": "",
+		"price": "",
+		"thumbnail": "",
+		"description": "",
+		"stock": "",
+		"status": "",
+		"category": "",
+		"code": "",
+		"id": 21
+	},
+	{
+		"title": "",
+		"price": "",
+		"thumbnail": "",
+		"description": "",
+		"stock": "",
+		"status": "",
+		"category": "",
+		"code": "2",
+		"id": 22
+	},
+	{
+		"title": "123",
+		"price": "123",
+		"thumbnail": "123",
+		"description": "123",
+		"stock": "123",
+		"status": "",
+		"category": "123",
+		"code": "346457",
+		"id": 23
+	},
+	{
+		"title": "Probando",
+		"price": "213",
+		"thumbnail": "",
+		"description": "",
+		"stock": "",
+		"status": "",
+		"category": "",
+		"code": "3464576",
+		"id": 24
+	},
+	{
+		"title": "asd",
+		"price": "1",
+		"thumbnail": "qwe",
+		"description": "qwe",
+		"stock": "3",
+		"status": "",
+		"category": "gg",
+		"code": "6532",
+		"id": 25
 	}
 ]

@@ -1,0 +1,45 @@
+<h1>Real time</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+        <tbody id="tbodyId">
+            {{#each products}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.title}}</td>
+                    <td>{{this.description}}</td>
+                    <td><img src="{{this.image}}" alt="{{this.title}}" width="100"></td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.stock}}</td>
+                    <td><button onclick = "deleteProduct("{{this.id}}")">borrar</button></td>
+                </tr>
+            {{/each}}
+        </tbody>
+</table>
+
+<h2>Form</h2>
+<div>
+    <form id="productForm">
+        <input id="productTitle" type="text" name="title" placeholder="Titulo">
+        <input id="productDescription" type="text" name="description" placeholder="Descripcion">
+        <input id="productThumbnail" type="text" name="image" placeholder="Imagen">
+        <input id="productPrice" type="number" name="price" placeholder="Precio">
+        <input id="productStock" type="number" name="stock" placeholder="Stock">
+        <input id="productCategory" type="text" name="category" placeholder="Categoria">
+        <input id="productStatus" type="text" name="status" placeholder="Estado">
+        <input id="productCode" type="text" name="code" placeholder="Codigo">
+        <button id="createProductButton" type="submit">Enviar</button>
+    </form>
+</div>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="/js/realtime.js"></script>
