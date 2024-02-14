@@ -1,5 +1,6 @@
 const socket = io();
 
+const productId = document.getElementById("productId");
 const productTitle = document.getElementById("productTitle");
 const productPrice = document.getElementById("productPrice");
 const productThumbnail = document.getElementById("productThumbnail");
@@ -33,17 +34,21 @@ createProductButton.addEventListener("click", () => {
 });
 
 //Enventos que escucha el servidor
-socket.on("list updated", (data) => {
-  const products = data.products;
+socket.on("list updated", ({ products }) => {
   tbodyId.innerHTML = "";
   products.forEach((product) => {
     tbodyId.innerHTML += `<tr>
+    <td>${product.id}</td>
     <td>${product.title}</td>
     <td>${product.description}</td>
     <td><img src="${product.thumbnail}" alt="${product.title}" width="100"></td>
     <td>${product.price}</td>
     <td>${product.stock}</td>
-    <td><button onclick = "deleteProduct("${product.id}")">borrar</button></td>
+    <td><button onclick = "deleteProduct(${product.id})">borrar</button></td>
     </tr>`;
   });
 });
+
+function deleteProduct(id) {
+  socket.emit("delete product", { id: id });
+}

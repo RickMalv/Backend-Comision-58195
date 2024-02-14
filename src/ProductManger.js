@@ -82,10 +82,13 @@ class ProductManager {
       throw new Error(`Producto con el id ${id} no encontrado`);
     }
 
-    products = products.filter((p) => p.id !== id);
+    products = products.filter((p) => p.id != id);
 
     console.log("Se borró el producto con id " + id);
-    await fs.promises.writeFile(this.path, JSON.stringify(products));
+    await fs.promises.writeFile(
+      this.path,
+      JSON.stringify(products, null, "\t")
+    );
   }
 
   async updateProduct(id, newProduct) {

@@ -38,6 +38,12 @@ io.on("connection", (socket) => {
     const products = await manager.getProducts();
     io.emit("list updated", { products: products });
   });
+
+  socket.on("delete product", async ({id}) => {
+    await manager.deleteProduct(id);
+    const products = await manager.getProducts();
+    io.emit("list updated", { products: products });
+  });
 });
 
 //public files
